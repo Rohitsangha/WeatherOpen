@@ -16,7 +16,7 @@ const Header = () => {
     return (
         <EuiHeader>
           <EuiHeaderSectionItem border="right">
-            <EuiHeaderLogo  iconType="cloudStormy" color="red">Weather-App</EuiHeaderLogo>
+            <EuiHeaderLogo  iconType="cloudStormy" color="red" >Weather-App</EuiHeaderLogo>
           </EuiHeaderSectionItem>
           <EuiHeaderSectionItem>
             <EuiHeaderLink href="#" style={{fontSize:'1.2rem'}}>
