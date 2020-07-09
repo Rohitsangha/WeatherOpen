@@ -1,26 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+import '@elastic/eui/dist/eui_theme_dark.css';
+import "./App.module.scss";
+import { Header } from './components';
+
+
+import {
+    EuiButton,
+    EuiFlexGroup,
+    EuiFlexItem,
+  } from '@elastic/eui';
+
+
+const App = () => {
+    return (
+        <div>
+            <Header />
+        <EuiButton
+        color="secondary"
+        onClick={() => window.alert('Button clicked')}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+        Secondary
+      </EuiButton>
+      </div>
+    )
+
 }
 
 export default App;
