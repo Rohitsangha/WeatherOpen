@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 
 import '@elastic/eui/dist/eui_theme_dark.css';
 import styles from"./App.module.scss";
-import { Header, Cards } from './components';
+import { Header, Cards} from './components';
 
 
 import {
@@ -20,6 +20,7 @@ import {
 
 const App = () => {
     const [newInput, setNewInput] = useState('') 
+    const [weatherVal, setWV] = useState('') 
 
     const handleInputChange = (event) => {
         setNewInput(event.target.value);
@@ -60,24 +61,11 @@ const App = () => {
 
             <EuiSpacer/>
 
+            <div className={styles.cards}>
             <Cards></Cards>
-            
+            </div>
            </div>
 
-            
-
-    //      <EuiFlexGroup>
-    //      <EuiFlexItem>
-    //        <EuiFieldSearch
-    //          placeholder="Search..."
-    //          fullWidth
-    //          aria-label="An example of search with fullWidth"
-    //        />
-    //      </EuiFlexItem>
-    //      <EuiFlexItem grow={false}>
-    //        <EuiButton>Search</EuiButton>
-    //      </EuiFlexItem>
-    //    </EuiFlexGroup>
     )
 
 }
