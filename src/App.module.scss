@@ -3,8 +3,18 @@
 
 html {
     font-size:15px;
+    padding:5px
 }
 
-.tester {
+.container {
     display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+}
+
+.flexC{
+    max-width: 450px;
+    margin: auto;
 }
