@@ -36,7 +36,7 @@ const App = () => {
     const searchApi = (event) => {
         event.preventDefault();
         setWV(
-        fetch(`http://open.mapquestapi.com/geocoding/v1/address?key=${temp}&location=${newInput}`)
+        fetch(`https://open.mapquestapi.com/geocoding/v1/address?key=${temp}&location=${newInput}`)
         .then(res => res.json())
         .then(data => 
             {
