@@ -90,6 +90,8 @@ const App = () => {
             </EuiForm>
 
             <EuiSpacer/>
+            
+            testing
 
             {Object.keys(weatherVal).length === 0 ? (
                 <div></div>
