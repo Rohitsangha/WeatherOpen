@@ -2,106 +2,12 @@ import React, {useState} from 'react';
 import Superselect from './superselect';
 const { EuiCard, EuiFlexItem, EuiFlexGroup, EuiIcon } = require("@elastic/eui");
 
-const Cards = () => {
-    const [value, setValue] = useState('hour');
+const Cards = ({weather}) => {
+    const [value, setValue] = useState('current');
 
-    const TestData =  [{
-        "dt": 1594335600,
-        "temp": 304.89,
-        "feels_like": 307.72,
-        "pressure": 1013,
-        "humidity": 59,
-        "dew_point": 295.89,
-        "clouds": 40,
-        "wind_speed": 3.23,
-        "wind_deg": 198,
-        "weather": [
-          {
-            "id": 802,
-            "main": "Clouds",
-            "description": "scattered clouds",
-            "icon": "01d"
-          }
-        ]
-      },
-      {
-        "dt": 1594339200,
-        "temp": 304.39,
-        "feels_like": 308.39,
-        "pressure": 1012,
-        "humidity": 67,
-        "dew_point": 297.53,
-        "clouds": 47,
-        "wind_speed": 2.91,
-        "wind_deg": 206,
-        "weather": [
-          {
-            "id": 802,
-            "main": "Clouds",
-            "description": "scattered clouds",
-            "icon": "13d"
-          }
-        ]
-      },
-      {
-        "dt": 1594342800,
-        "temp": 302.41,
-        "feels_like": 306.78,
-        "pressure": 1011,
-        "humidity": 75,
-        "dew_point": 297.52,
-        "clouds": 87,
-        "wind_speed": 2.37,
-        "wind_deg": 215,
-        "weather": [
-          {
-            "id": 804,
-            "main": "Clouds",
-            "description": "overcast clouds",
-            "icon": "02d"
-          }
-        ]
-      },
-      {
-        "dt": 1594346400,
-        "temp": 300.67,
-        "feels_like": 305.24,
-        "pressure": 1011,
-        "humidity": 79,
-        "dew_point": 296.7,
-        "clouds": 96,
-        "wind_speed": 1.4,
-        "wind_deg": 222,
-        "weather": [
-          {
-            "id": 804,
-            "main": "Clouds",
-            "description": "overcast clouds",
-            "icon": "11n"
-          }
-        ]
-      },
-      {
-        "dt": 1594350000,
-        "temp": 300.1,
-        "feels_like": 304.53,
-        "pressure": 1012,
-        "humidity": 81,
-        "dew_point": 296.56,
-        "clouds": 99,
-        "wind_speed": 1.49,
-        "wind_deg": 204,
-        "weather": [
-          {
-            "id": 804,
-            "main": "Clouds",
-            "description": "overcast clouds",
-            "icon": "09n"
-          }
-        ]
-      },
-      
-    ];
+    const currentData = weather.current;
+    const hourData = weather.hourly.slice(0,5);
+    const weekData = weather.daily.slice(0,5);
 
 const checkIcon = (i) => {
     switch(i) {
@@ -127,61 +33,109 @@ const checkIcon = (i) => {
     }
 }
 
-const hourNodes = TestData.map( (data,index) => {
+const unixTimeConverter = (dt) => {
+  let time = dt;
+  let date = new Date(time * 1000)
+
+  let hours = date.getHours();
+  let minutes = "0" + date.getMinutes();
+
+  return (hours + ':' + minutes.substr(-2))
+
+}
+
+const unixDayConverter = (dt) => {
+  let date = new Date(dt*1000);
+  const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  return days[date.getDay()]
+}
+
+const hourNodes = hourData.map((data,index) => {
     let icon = checkIcon(data.weather[0].icon)
-    console.log(icon);
     return (
     <EuiFlexItem key={index}>
         <EuiCard
-            title={`${(Math.round((data.temp-273.15) * 100) / 100).toFixed(1)} ℃`}
+            title={`${(Math.round((data.temp-273.15) * 100) / 100).toFixed(0)} ℃`}
             icon={<EuiIcon size="original" type={require(`${icon}`)} />}
-            description="Monday"
-            onClick={() => window.alert('Card clicked')}
+            description={`${unixTimeConverter(data.dt)}`}
+            onClick={() => {}}
             style={{boxShadow:'0 6px 8px 0 rgba(77,161,192,1)'}}
         >
         </EuiCard>
     </EuiFlexItem>
     )
-}
-);
+});
 
-console.log(hourNodes);
-console.log(Superselect.value);
+
+const weekNodes = weekData.map((data,index) => {
+  let icon = checkIcon(data.weather[0].icon)
+  return (
+  <EuiFlexItem key={index}>
+      <EuiCard
+          title={`${(Math.round((data.temp.max-273.15) * 100) / 100).toFixed(0)}/${(Math.round((data.temp.min-273.15) * 100) / 100).toFixed(0)} ℃`}
+          icon={<EuiIcon size="original" type={require(`${icon}`)} />}
+          description={`${unixDayConverter(data.dt)}`}
+          onClick={() => {}}
+          style={{boxShadow:'0 6px 8px 0 rgba(77,161,192,1)'}}
+      >
+      </EuiCard>
+  </EuiFlexItem>
+  )
+});
+
+
+const currentNode = (
+
+    <EuiFlexItem key={"current"}>
+        <EuiCard
+            title={`${(Math.round((currentData.temp-273.15) * 100) / 100).toFixed(0)} ℃`}
+            icon={<EuiIcon size="original" type={require(`${checkIcon(currentData.weather[0].icon)}`)} />}
+            description={`Feels Like ${(Math.round((currentData.feels_like-273.15) * 100) / 100).toFixed(1)} ℃`}
+            onClick={() => {}}
+            style={{boxShadow:'0 6px 8px 0 rgba(77,161,192,1)'}}
+        >
+        </EuiCard>
+    </EuiFlexItem>
+  )
+
+
 
 if (value==='hour') {
 return  (
     <div>
-    <Superselect value={value} setValue={setValue}></Superselect>
+       <EuiFlexGroup style={{maxWidth: '450px', margin: 'auto'}}>
+         <EuiFlexItem >
+          <Superselect value={value} setValue={setValue}></Superselect>
+          </EuiFlexItem>
+       </EuiFlexGroup>
     <EuiFlexGroup justifyContent="center" alignItems="center">{hourNodes}</EuiFlexGroup>
     </div>
 )
 }
 if (value==='day') {
     return  (
-        <div>
-            <Superselect value={value} setValue={setValue}></Superselect>
-        Hello
-        </div>
+      <div>
+      <EuiFlexGroup style={{maxWidth: '450px', margin: 'auto'}}>
+        <EuiFlexItem >
+         <Superselect value={value} setValue={setValue}></Superselect>
+         </EuiFlexItem>
+      </EuiFlexGroup>
+   <EuiFlexGroup justifyContent="center" alignItems="center">{weekNodes}</EuiFlexGroup>
+   </div>
     )
 }
-if (value==='minute') {
+if (value==='current') {
     return  (
-        <div>
-            <Superselect value={value} setValue={setValue}></Superselect>
-        Hello
-        </div>
+      <div>
+      <EuiFlexGroup style={{maxWidth: '450px', margin: 'auto'}}>
+        <EuiFlexItem >
+         <Superselect value={value} setValue={setValue}></Superselect>
+         </EuiFlexItem>
+      </EuiFlexGroup>
+   <EuiFlexGroup style={{width:'300px', margin:'auto'}} justifyContent="center" alignItems="center">{currentNode}</EuiFlexGroup>
+   </div>
     )
 }
 }
-// }
-// if (value==='hour') {
-//     return  (
-//         <div>
-//         <Superselect value={value} setValue={setValue}></Superselect>
-//         <EuiFlexGroup justifyContent="center" alignItems="center">{hourNodes}</EuiFlexGroup>
-//         </div>
-//     )
-//     }
-// }
 
 export default Cards;

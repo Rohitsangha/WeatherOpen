@@ -23,10 +23,10 @@ const Superselect = ({value,setValue}) => {
       'data-test-subj': 'option-minor',
     },
     {
-      value: 'minute',
+      value: 'current',
       inputDisplay: (
         <EuiHealth color="success" style={{ lineHeight: 'inherit' }}>
-          View Minute Forecast Chart
+          View Current Forecast
         </EuiHealth>
       ),
       'data-test-subj': 'option-critical',
