@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1ce0c51249e130477c28c43837f39921",
+    "revision": "b5f3f5b891811f5ab8cdebe37777d184",
     "url": "/WeatherOpen/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/WeatherOpen/static/css/393.fa5d1e3e.chunk.css"
   },
   {
-    "revision": "0f4ed6446353db4413b1",
+    "revision": "519dbc30051d34f3da57",
     "url": "/WeatherOpen/static/css/main.51963a03.chunk.css"
   },
   {
@@ -1584,8 +1584,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/WeatherOpen/static/js/icon.wrench-js.4aedd98f.chunk.js"
   },
   {
-    "revision": "0f4ed6446353db4413b1",
-    "url": "/WeatherOpen/static/js/main.0f5badc5.chunk.js"
+    "revision": "519dbc30051d34f3da57",
+    "url": "/WeatherOpen/static/js/main.05afabbe.chunk.js"
   },
   {
     "revision": "af195065804aa1c447f6",

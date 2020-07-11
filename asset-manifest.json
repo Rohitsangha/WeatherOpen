@@ -783,15 +783,15 @@
     "icon.wrench-js.js": "/WeatherOpen/static/js/icon.wrench-js.4aedd98f.chunk.js",
     "icon.wrench-js.js.map": "/WeatherOpen/static/js/icon.wrench-js.4aedd98f.chunk.js.map",
     "main.css": "/WeatherOpen/static/css/main.51963a03.chunk.css",
-    "main.js": "/WeatherOpen/static/js/main.0f5badc5.chunk.js",
-    "main.js.map": "/WeatherOpen/static/js/main.0f5badc5.chunk.js.map",
+    "main.js": "/WeatherOpen/static/js/main.05afabbe.chunk.js",
+    "main.js.map": "/WeatherOpen/static/js/main.05afabbe.chunk.js.map",
     "runtime-main.js": "/WeatherOpen/static/js/runtime-main.922ab183.js",
     "runtime-main.js.map": "/WeatherOpen/static/js/runtime-main.922ab183.js.map",
     "static/css/393.fa5d1e3e.chunk.css": "/WeatherOpen/static/css/393.fa5d1e3e.chunk.css",
     "static/js/393.0e7fc77d.chunk.js": "/WeatherOpen/static/js/393.0e7fc77d.chunk.js",
     "static/js/393.0e7fc77d.chunk.js.map": "/WeatherOpen/static/js/393.0e7fc77d.chunk.js.map",
     "index.html": "/WeatherOpen/index.html",
-    "precache-manifest.feed2dd20062bba1fff9831f46152c84.js": "/WeatherOpen/precache-manifest.feed2dd20062bba1fff9831f46152c84.js",
+    "precache-manifest.69609c644651ec2287456acf7e1bebac.js": "/WeatherOpen/precache-manifest.69609c644651ec2287456acf7e1bebac.js",
     "service-worker.js": "/WeatherOpen/service-worker.js",
     "static/css/393.fa5d1e3e.chunk.css.map": "/WeatherOpen/static/css/393.fa5d1e3e.chunk.css.map",
     "static/css/main.51963a03.chunk.css.map": "/WeatherOpen/static/css/main.51963a03.chunk.css.map",
@@ -829,6 +829,6 @@
     "static/css/393.fa5d1e3e.chunk.css",
     "static/js/393.0e7fc77d.chunk.js",
     "static/css/main.51963a03.chunk.css",
-    "static/js/main.0f5badc5.chunk.js"
+    "static/js/main.05afabbe.chunk.js"
   ]
 }
